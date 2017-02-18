@@ -1,7 +1,14 @@
 #ChatSparrow 소개
 
-제 멋대로 긁어온 이미지입니다. 소유권을 주장하지 않습니다. 귀여운 이미지 감사합니다.
-![logo]()
+참새는 짹짹 하고 울어서 jack 입니다.
+그리고 참새들은 jack jack하며 대화하기 때문에 sparrow라는 이름을 붙였습니다.
+그래서 대화하는 참새 ChatSparrow입니다. *twitter* 아닙니...ㄷ...ㅏ..
+
+그리고 캐리비언의 해적 주인공 이름은 jack sparrow 이구요...! 재미있게 만들고자...
+
+ChatSparrow의 로고 Jack입니다.
+
+![logo](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/logo.png)
 
   - n:m GUI 채팅프로그램입니다.
   - 채팅프로그램의 테마는 해적입니다.
@@ -25,25 +32,25 @@
 # 실행 화면
   안이쁘다구요..? 죄송해요.. 나름 이쁘게 해본겁니다.
 
-![전체 화면 소스]()
+![전체 화면 소스](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/ui.JPG)
 
 # 간단한 설계
 
   1. DataFormat, DFD, UseCase, Architecture
   
-  ![all]()
+  ![all](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/images.PNG)
   
   2. ClassDiagram
   
-  ![class diagram]()
+  ![class diagram](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/classD.png)
 
   3. ActivityDiagram
 
-  ![Activity Diagram]()
+  ![Activity Diagram](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/activityD.png)
 
 
 # 산출문서
 
-  - [제안-설계-완료보고서]() 
-  - [DB Backup.sql]()
+  - [제안-설계-완료보고서](https://github.com/drake-jin/ChatSparrow/blob/master/docs/DBbackup.sql) 
+  - [DB Backup.sql](https://github.com/drake-jin/ChatSparrow/raw/master/docs/%EC%A0%9C%EC%95%88_%EC%84%A4%EA%B3%84_%EC%99%84%EB%A3%8C%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf)
 
