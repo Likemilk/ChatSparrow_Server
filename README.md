@@ -49,6 +49,135 @@ ChatSparrow의 로고 Jack입니다.
   ![Activity Diagram](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/activityD.png)
 
 
+
+# 주요 코드
+
+ 1. 서버 헤더 읽기
+  ``` java
+	@Override
+	public void run() {
+		// ----------------------생략-------------------------
+        try{
+			while(true){
+				req = JSONObject.fromObject(dis.readUTF());
+				String message = req.getString("FUNC");
+				switch(message){
+					//Controller역할을 함  패킷의 FUNC에 따라 서비스 클래스 실행을 구분함. 즉, Mapper  의 역할 
+					case ChatContext.FUNC_LOGIN:{
+					}
+					case ChatContext.FUNC_LOGIN_SUCCESS:{
+					}
+					case ChatContext.FUNC_SESSION_OUT:{
+					}
+					case ChatContext.FUNC_JOIN:{
+					}
+					case ChatContext.FUNC_MAKE_ROOM:{
+						if(roomHash.containsKey(pirate)){
+							result.put("FUNC", ChatContext.FUNC_MAKE_ROOM_NO);
+						}else{
+							result.put("FUNC", ChatContext.FUNC_MAKE_ROOM_YES);
+						}
+					}
+					case ChatContext.FUNC_ENTER_ROOM:{
+					}
+					case ChatContext.FUNC_EXIT_ROOM:{
+					}
+					case ChatContext.FUNC_MSG_REQUEST:{
+						switch(reqData.getString("TYPE")){
+							case ChatContext.MSG_TYPE_WHISPER:{
+								if(logonHash.containsKey(whisper)){
+								    //사용자가 접속중인지를 확인합니다.
+								}else{
+									//사용자가 접속중이지 않을때.
+								}
+							}
+							case ChatContext.MSG_TYPE_ALL:{
+							}
+							case ChatContext.MSG_TYPE_NORMAL:{
+							}
+						}
+					}					
+				}
+			}
+		}catch(SocketException se){
+			// 사용자의 스레드가 종료되면 에러발생
+			sessionCtrl.sessionOut(id);
+		}catch(Exception e){
+			sessionCtrl.sessionOut(id);
+		}
+		// ----------------------생략-------------------------
+	}	
+  ```
+
+ 2. 클라이언트 패킷 읽기
+
+  ``` java 
+	@Override
+	public void run() {
+		// ----------------------생략-------------------------
+		try{
+			Thread currThread = Thread.currentThread();
+			while(currThread == thisThread){
+				//thisThread = null;
+				String recvData = dis.readUTF();
+				res = JSONObject.fromObject(recvData);
+				String command = res.getString("FUNC");
+				ChatContext.println("@@FUNC==["+command+"]", res.toString());
+				//패킷을 돌릴때마다 첫번째 메세지 프토로토콜을 검증한다.
+				//서버로 부터 전송 받은 메세지를 구분하기 위함.
+				switch(command){
+					case ChatContext.FUNC_LOGIN_YES:{
+					} 
+					case ChatContext.FUNC_LOGIN_NO:{
+					}
+					case ChatContext.FUNC_LOGIN_NETWORK:{
+					}
+					case ChatContext.FUNC_LOGIN_CODE:{
+					}
+					case ChatContext.FUNC_LOGIN_SESSION:{
+					}
+					case ChatContext.FUNC_JOIN_YES:{
+					}
+					case ChatContext.FUNC_JOIN_ID:{
+					}
+					case ChatContext.FUNC_JOIN_SQL_CODE:{
+					}
+					case ChatContext.FUNC_JOIN_SQL_ERR:{
+					}
+					case ChatContext.FUNC_JOIN_CODE :{
+					}
+					case ChatContext.FUNC_INFO_ROOM_LIST:{
+					}
+					case ChatContext.FUNC_INFO_ROOM_USER_LIST:{
+					}
+					case ChatContext.FUNC_MAKE_ROOM_YES :{
+					} 
+					case ChatContext.FUNC_MAKE_ROOM_NO :{
+					}
+					case ChatContext.FUNC_MSG_RESPONSE:{
+						switch (resData.getString("TYPE")) {
+							case ChatContext.MSG_TYPE_WHISPER: {
+							}
+							case ChatContext.MSG_TYPE_WHISPER_SELF:{
+							}
+							case ChatContext.MSG_TYPE_WHISPER_FAIL: {
+							}
+							case ChatContext.MSG_TYPE_ALL: {
+							}
+							case ChatContext.MSG_TYPE_NORMAL: {
+							}
+						}
+					}				
+				}//Switch 종료
+			}//while 종료
+		}catch(NullPointerException e){
+		}catch(InterruptedException e){
+		}catch(Exception e){
+		}		
+		// ----------------------생략-------------------------
+	}
+  ```
+
 # 산출문서
 
   - [제안-설계-완료보고서](https://github.com/drake-jin/ChatSparrow/blob/master/docs/DBbackup.sql) 
