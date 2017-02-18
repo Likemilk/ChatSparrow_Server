@@ -10,6 +10,9 @@ ChatSparrow의 로고 Jack입니다.
 
 ![logo](https://github.com/drake-jin/ChatSparrow/raw/master/docs/images/logo.png)
 
+
+# 프로젝트 특징
+ 
   - n:m GUI 채팅프로그램입니다.
   - 채팅프로그램의 테마는 해적입니다.
   - 채팅이 곧 전쟁과 약탈이며, 서비스를 이용할 때마다 포인트의 증감이 있습니다.
@@ -18,16 +21,40 @@ ChatSparrow의 로고 Jack입니다.
   - 포인트가 0보다 작게되면 죽은것이므로 계정을 삭제시킵니다.
   - 해적단이기 때문에 모든 회원은 해적단의 그룹에 포함되어 있습니다.
 
+# 프로그램 실행하기
+
+ 1. 클라이언트 실행[자바가 설치되어 있어야 합니다.]
+ 
+  - exe실행 
+   ``` bash  
+  git clone https://github.com/drake-jin/ChatSparrow
+  ./ChatSparrow/ChatSparrow.exe
+   ```
+  - console 실행
+ 
+  ``` bash
+  git clone https://github.com/drake-jin/ChatSparrow
+  javaw -jar ./ChatSparrow/bin/ChatSparrowClient-0.1.1v.jar  
+  ```
+ 2. 서버 실행 
+  [주의!! 첨부파일의 DB와 서버와 클라이언트 소스의 ChatContext.java 에서 포트를 수정하셔야 합니다.. 그리고 실행 jar 로 export해주세요]  
+  ``` bash  
+  git clone https://github.com/drake-jin/ChatSparrow
+  javaw -jar ./ChatSparrow/bin/ChatSparrowServer-0.1.1v.jar
+
+  ```
+
+
 # 디렉토리 구조
 
   - bin 
-    - 실행파일과 jar가 들어가있습니다. ChatSparrow.exe는 resources폴더가 있어야... 정상적으로 보입니다.
+    - 실행파일과 jar가 들어가있습니다. resources폴더가 있는 곳에서 실행 시켜야 합니다....
   - docs 
     - README.md의 이미지와 문서들을 가지고 있습니다.
   - server
     - ChatSparrow의 서버 소스입니다. 나름 세션도 있습니다. 기왕하는거 connection pool도 만들어볼껄 그랬어요.
   - client
-    - ChatSparrow의 클라이언트 소스입니다. 더럽지만 잘부탁드립니다.
+    - ChatSparrow의 클라이언트 소스입니다.
 
 # 실행 화면
   안이쁘다구요..? 죄송해요.. 나름 이쁘게 해본겁니다.
